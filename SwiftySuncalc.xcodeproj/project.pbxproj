@@ -8,7 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B847E25C209DBC19008E2B3D /* SwiftySuncalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B847E25B209DBC19008E2B3D /* SwiftySuncalc.swift */; };
+		B847E269209DBC93008E2B3D /* SwiftySuncalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B847E268209DBC93008E2B3D /* SwiftySuncalcTests.swift */; };
+		B847E26B209DBC93008E2B3D /* libSwiftySuncalc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B847E258209DBC19008E2B3D /* libSwiftySuncalc.a */; };
+		B847E272209DC23A008E2B3D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B847E271209DC23A008E2B3D /* README.md */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B847E26C209DBC93008E2B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B847E250209DBC19008E2B3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B847E257209DBC19008E2B3D;
+			remoteInfo = SwiftySuncalc;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B847E256209DBC19008E2B3D /* CopyFiles */ = {
@@ -25,6 +38,10 @@
 /* Begin PBXFileReference section */
 		B847E258209DBC19008E2B3D /* libSwiftySuncalc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftySuncalc.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B847E25B209DBC19008E2B3D /* SwiftySuncalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftySuncalc.swift; sourceTree = "<group>"; };
+		B847E266209DBC93008E2B3D /* SwiftySuncalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftySuncalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B847E268209DBC93008E2B3D /* SwiftySuncalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftySuncalcTests.swift; sourceTree = "<group>"; };
+		B847E26A209DBC93008E2B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B847E271209DC23A008E2B3D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +52,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B847E263209DBC93008E2B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B847E26B209DBC93008E2B3D /* libSwiftySuncalc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -42,7 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				B847E25A209DBC19008E2B3D /* SwiftySuncalc */,
+				B847E267209DBC93008E2B3D /* SwiftySuncalcTests */,
 				B847E259209DBC19008E2B3D /* Products */,
+				B847E271209DC23A008E2B3D /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				B847E258209DBC19008E2B3D /* libSwiftySuncalc.a */,
+				B847E266209DBC93008E2B3D /* SwiftySuncalcTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +88,15 @@
 				B847E25B209DBC19008E2B3D /* SwiftySuncalc.swift */,
 			);
 			path = SwiftySuncalc;
+			sourceTree = "<group>";
+		};
+		B847E267209DBC93008E2B3D /* SwiftySuncalcTests */ = {
+			isa = PBXGroup;
+			children = (
+				B847E268209DBC93008E2B3D /* SwiftySuncalcTests.swift */,
+				B847E26A209DBC93008E2B3D /* Info.plist */,
+			);
+			path = SwiftySuncalcTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +119,24 @@
 			productReference = B847E258209DBC19008E2B3D /* libSwiftySuncalc.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		B847E265209DBC93008E2B3D /* SwiftySuncalcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B847E26E209DBC93008E2B3D /* Build configuration list for PBXNativeTarget "SwiftySuncalcTests" */;
+			buildPhases = (
+				B847E262209DBC93008E2B3D /* Sources */,
+				B847E263209DBC93008E2B3D /* Frameworks */,
+				B847E264209DBC93008E2B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B847E26D209DBC93008E2B3D /* PBXTargetDependency */,
+			);
+			name = SwiftySuncalcTests;
+			productName = SwiftySuncalcTests;
+			productReference = B847E266209DBC93008E2B3D /* SwiftySuncalcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +148,9 @@
 				ORGANIZATIONNAME = "(none)";
 				TargetAttributes = {
 					B847E257209DBC19008E2B3D = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					B847E265209DBC93008E2B3D = {
 						CreatedOnToolsVersion = 9.3;
 					};
 				};
@@ -110,9 +168,21 @@
 			projectRoot = "";
 			targets = (
 				B847E257209DBC19008E2B3D /* SwiftySuncalc */,
+				B847E265209DBC93008E2B3D /* SwiftySuncalcTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B847E264209DBC93008E2B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B847E272209DC23A008E2B3D /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B847E254209DBC19008E2B3D /* Sources */ = {
@@ -123,7 +193,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B847E262209DBC93008E2B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B847E269209DBC93008E2B3D /* SwiftySuncalcTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B847E26D209DBC93008E2B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B847E257209DBC19008E2B3D /* SwiftySuncalc */;
+			targetProxy = B847E26C209DBC93008E2B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B847E25D209DBC19008E2B3D /* Debug */ = {
@@ -264,6 +350,40 @@
 			};
 			name = Release;
 		};
+		B847E26F209DBC93008E2B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftySuncalcTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cristiangonzales.SwiftySuncalcTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B847E270209DBC93008E2B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftySuncalcTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cristiangonzales.SwiftySuncalcTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -281,6 +401,15 @@
 			buildConfigurations = (
 				B847E260209DBC19008E2B3D /* Debug */,
 				B847E261209DBC19008E2B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B847E26E209DBC93008E2B3D /* Build configuration list for PBXNativeTarget "SwiftySuncalcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B847E26F209DBC93008E2B3D /* Debug */,
+				B847E270209DBC93008E2B3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
