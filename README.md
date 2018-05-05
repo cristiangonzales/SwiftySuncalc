@@ -12,9 +12,13 @@
 
 Per the original suncalc project [README](https://github.com/mourner/suncalc/blob/master/README.md),
 ```
-SunCalc is a tiny BSD-licensed JavaScript library for calculating sun position, sunlight phases (times for sunrise, sunset, dusk, etc.), moon position and lunar phase for the given location and time, created by Vladimir Agafonkin (@mourner) as a part of the SunCalc.net project.
+SunCalc is a tiny BSD-licensed JavaScript library for calculating sun position, sunlight phases
+(times for sunrise, sunset, dusk, etc.), moon position and lunar phase for the given location
+and time, created by Vladimir Agafonkin (@mourner) as a part of the SunCalc.net project.
 
-Most calculations are based on the formulas given in the excellent Astronomy Answers articles about position of the sun and the planets. You can read about different twilight phases calculated by SunCalc in the Twilight article on Wikipedia.
+Most calculations are based on the formulas given in the excellent Astronomy Answers articles
+about position of the sun and the planets. You can read about different twilight phases calculated
+by SunCalc in the Twilight article on Wikipedia.
 ```
 That Wikipedia article can be found [here](http://en.wikipedia.org/wiki/Twilight). This Swift library is a port of the original [suncalc.js library](https://github.com/mourner/suncalc), as created by [Vladimir Agafonkin](http://agafonkin.com/en) [@mourner](https://github.com/mourner).
 
