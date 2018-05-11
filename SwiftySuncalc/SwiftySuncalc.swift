@@ -39,20 +39,20 @@
 
 import Foundation
 
-open class SwiftySuncalc
+public class SwiftySuncalc
 {
     // Simple conventions
     internal let PI: Double = Double.pi
-    internal let rad: Double = Double.pi / 180
+    internal let rad: Double = Double.pi / 180.0
     
     // Date/time conversions (Julian time)
-    internal let dayMs: Double = 1000 * 60 * 60 * 24
+    internal let dayMs: Double = 1000.0 * 60.0 * 60.0 * 24.0
     internal let J0: Double = 0.0009
     internal let J1970: Double = 2440588.0
     internal let J2000: Double = 2451545.0
     
     // Obliquity of the Earth
-    internal let e: Double = (Double.pi / 180) * 23.4397
+    internal let e: Double = (Double.pi / 180.0) * 23.4397
     
     // Sun time configuration (angle, morning name, evening name)
     internal var times: [[Any]] = [
@@ -209,7 +209,7 @@ open class SwiftySuncalc
      */
     private func siderealTime(d: Double, lw: Double) -> Double
     {
-        return rad * (280.16 + 360.9856235 * d) - lw;
+        return rad * (280.16 + 360.9856235 * d) - lw
     }
     
     /**
@@ -228,9 +228,9 @@ open class SwiftySuncalc
         var h: Double = h
         // The following formula works for positive altitudes only. A div/0 will occur if less than 0
         // (hence the following conditional)
-        if (h < 0)
+        if (h < 0.0)
         {
-            h = 0.0;
+            h = 0.0
         }
         
         // See forumla 16.4 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell,
@@ -275,7 +275,7 @@ open class SwiftySuncalc
     private func eclipticLongitude(m: Double) -> Double
     {
         // Equation of the center
-        let c: Double = rad * (1.9148 * sin(m) + 0.02 * sin(2 * m) + 0.0003 * sin(3 * m))
+        let c: Double = rad * (1.9148 * sin(m) + 0.02 * sin(2.0 * m) + 0.0003 * sin(3.0 * m))
         // Perihelion of the Earth
         let p: Double = rad * 102.9372
         return m + c + p + PI
@@ -296,12 +296,12 @@ open class SwiftySuncalc
      */
     private func sunCoords(d: Double) -> Dictionary<String, Double>
     {
-        let mean = solarMeanAnomaly(d: d)
-        let long = eclipticLongitude(m: mean)
+        let mean: Double = solarMeanAnomaly(d: d)
+        let long: Double = eclipticLongitude(m: mean)
         
         return [
-            "dec": declination(l: long, b: 0),
-            "ra": rightAscension(l: long, b: 0)
+            "dec": declination(l: long, b: 0.0),
+            "ra": rightAscension(l: long, b: 0.0)
         ]
     }
     
@@ -317,7 +317,7 @@ open class SwiftySuncalc
      */
     private func julianCycle(d: Double, lw: Double) -> Double
     {
-        return (d - J0 - lw / (2 * PI).rounded())
+        return ((d - J0 - lw / (2.0 * PI)).rounded())
     }
     
     /**
@@ -335,7 +335,7 @@ open class SwiftySuncalc
      */
     private func approxTransit(Ht: Double, lw: Double, n: Double) -> Double
     {
-        return J0 + (Ht + lw) / (2 * PI) + n;
+        return J0 + (Ht + lw) / (2.0 * PI) + n;
     }
     
     /**
@@ -421,7 +421,7 @@ open class SwiftySuncalc
         // Latitude
         b: Double = rad * 5.128 * sin(F),
         // Distance to the moon in km
-        dt: Double = 385001 - 20905 * cos(M)
+        dt: Double = 385001.0 - 20905.0 * cos(M)
         
         return [
             "ra": rightAscension(l: l, b: b),
@@ -442,7 +442,7 @@ open class SwiftySuncalc
      */
     private func hoursLater(date: Date, h: Double) -> Date
     {
-        return Date(milliseconds: Int(Double(date.millisecondsSince1970) + h * dayMs  / 24))
+        return Date(milliseconds: Int(Double(date.millisecondsSince1970) + h * dayMs  / 24.0))
     }
     
     /**
@@ -464,7 +464,7 @@ open class SwiftySuncalc
      - returns:
      Dictionary containing azimuth and altitude values, both expressed as type Double
      */
-    public func getPosition(date: Date, lat: Double, lng: Double) throws -> Dictionary<String, Double>
+    public func getPosition(date: Date, lat: Double, lng: Double) -> Dictionary<String, Double>
     {
         var lw = rad * -lng,
         phi = rad * lat,
@@ -507,7 +507,7 @@ open class SwiftySuncalc
      A dictionary of strings indicating the time, and an associated date indicating the time at which
      these occurences occur
      */
-    public func getTimes(date: Date, lat: Double, lng: Double) throws -> Dictionary<String, Date>
+    public func getTimes(date: Date, lat: Double, lng: Double) -> Dictionary<String, Date>
     {
         var lw: Double = rad * -lng,
         phi: Double = rad * lat,
@@ -518,7 +518,7 @@ open class SwiftySuncalc
         
         M: Double = solarMeanAnomaly(d: ds),
         L: Double = eclipticLongitude(m: M),
-        dec: Double = declination(l: L, b: 0),
+        dec: Double = declination(l: L, b: 0.0),
         
         Jnoon: Double = solarTransitJ(ds: ds, M: M, L: L),
         
@@ -529,7 +529,7 @@ open class SwiftySuncalc
             "nadir": fromJulian(j: (Jnoon - 0.5))
         ]
         
-        for i in 0...times.count
+        for i in 0...(times.count - 1)
         {
             time = times[i]
             
@@ -591,7 +591,7 @@ open class SwiftySuncalc
     public func getMoonIllumination(date: Date) -> Dictionary<String, Double>
     {
         var d: Double;
-        if date > Date()
+        if date < Date()
         {
             d = toDays(date: date)
         }
@@ -603,7 +603,7 @@ open class SwiftySuncalc
         var s: Dictionary<String, Double> = sunCoords(d: d),
         m: Dictionary<String, Double> = moonCoords(d: d),
         // Distance from Earth to Sun in km
-        sdist: Double = Double(149598000),
+        sdist: Double = 149598000.0,
         
         phi: Double = acos(sin(s["dec"]!) * sin(m["dec"]!) + cos(s["dec"]!)
             * cos(m["dec"]!) * cos(s["ra"]! - m["ra"]!)),
@@ -613,7 +613,7 @@ open class SwiftySuncalc
         
         return [
             "fraction": (1.0 + cos(inc)) / 2.0,
-            "phrase": 0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / PI,
+            "phase": 0.5 + 0.5 * inc * (angle < 0.0 ? -1.0 : 1.0) / PI,
             "angle": angle
         ]
     }
@@ -640,20 +640,30 @@ open class SwiftySuncalc
     public func getMoonTimes(date: Date, lat: Double, lng: Double) -> Dictionary<String, Date?>
     {
         var t: Date =  Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date)!,
-        hc: Double = 0.133 * rad,
-        h0: Double = getMoonPosition(date: t, lat: lat, lng: lng)["altitude"]! - hc,
-        h1: Double, h2: Double, rise: Double? = nil, set: Double? = nil, a: Double, b: Double, xe: Double,
-        ye: Double, d: Double, roots: Int, x1: Double? = nil, x2: Double? = nil, dx: Double
+            hc: Double = 0.133 * rad,
+            h0: Double = getMoonPosition(date: t, lat: lat, lng: lng)["altitude"]! - hc,
+            h1: Double,
+            h2: Double,
+            rise: Double? = nil,
+            set: Double? = nil,
+            a: Double,
+            b: Double,
+            xe: Double,
+            ye: Double,
+            d: Double,
+            roots: Int,
+            x1: Double? = nil,
+            x2: Double? = nil,
+            dx: Double
         
         // Go in 2-hour chunks, each time seeing if a 3-point quadratic curve crosses zero
         // (which means rise or set)
-        for i in stride(from: 2, to: 24, by: 2)
+        for i in stride(from: 1, to: 24, by: 2)
         {
             h1 = getMoonPosition(date: hoursLater(date: t,
                                                   h: Double(i)), lat: lat, lng: lng)["altitude"]! - hc
             h2 = getMoonPosition(date: hoursLater(date: t,
                                                   h: Double(i + 1)), lat: lat, lng: lng)["altitude"]! - hc
-            
             a = (h0 + h2) / 2.0 - h1
             b = (h2 - h0) / 2.0
             xe = -b / (2.0 * a)
@@ -661,16 +671,16 @@ open class SwiftySuncalc
             d = b * b - 4.0 * a * h1
             roots = 0
             
-            if d >= 0
+            if d >= 0.0
             {
-                dx = Double(abs(Int(d))) / Double(abs(Int(a)) * 2)
+                dx = Double(sqrt(d)) / Double(abs(a) * 2.0)
                 x1 = xe - dx
                 x2 = xe + dx
-                if abs(Int(x1!)) <= 1
+                if abs(x1!) <= 1
                 {
                     roots = roots + 1
                 }
-                if abs(Int(x2!)) <= 1
+                if abs(x2!) <= 1
                 {
                     roots = roots + 1
                 }
@@ -682,7 +692,7 @@ open class SwiftySuncalc
             
             if roots == 1
             {
-                if h0 < 0
+                if h0 < 0.0
                 {
                     rise = Double(i) + x1!
                 }
@@ -694,7 +704,7 @@ open class SwiftySuncalc
             else if roots == 2
             {
                 rise = Double(i) + (ye < 0.0 ? x2! : x1!)
-                set = Double(i) + (ye < 0.0 ? x2! : x1!)
+                set = Double(i) + (ye < 0.0 ? x1! : x2!)
             }
             
             if (rise != nil && set != nil)
@@ -713,9 +723,9 @@ open class SwiftySuncalc
         }
         if (set != nil)
         {
-            result["set"] = hoursLater(date: t, h: rise!)
+            result["set"] = hoursLater(date: t, h: set!)
         }
-        
+                
         return result
     }
 }

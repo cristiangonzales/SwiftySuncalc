@@ -8,4 +8,9 @@ Please have a look at the [GitHub Swift Style Guide](https://github.com/github/s
 
 All contributions are welcome, simply make a pull request [here](https://github.com/cristiangonzales/SwiftySuncalc/issues). :sunny::sunglasses:
 
+Changelog
+---
+#### 0.1 &mdash; May 11, 2018
+- Working version of SwiftySuncalc.
+
 ##### Thank you for contributing!
