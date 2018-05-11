@@ -91,6 +91,7 @@ Returns a dictionary with the following keys:
 * `angle`: midpoint angle in radians of the illuminated limb of the moon reckoned eastward from the north point of the disk; the moon is waxing if the angle is negative, and waning if positive
 
 Moon phase value should be interpreted like this:
+
 | Phase | Name            |
 | -----:| --------------- |
 | 0     | New Moon        |
@@ -101,6 +102,7 @@ Moon phase value should be interpreted like this:
 |       | Waning Gibbous  |
 | 0.75  | Last Quarter    |
 |       | Waning Crescent |
+
 By subtracting the `parallacticAngle` from the `angle` one can get the zenith angle of the moons bright limb (anticlockwise).
 The zenith angle can be used do draw the moon shape from the observers perspective (e.g. moon lying on its back).
 
