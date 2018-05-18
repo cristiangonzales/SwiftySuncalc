@@ -83,7 +83,7 @@ Returns a dictionary with the following keys:
 
 ### Moon illumination
 ```Swift
-getMoonIllumination(date: Date) -> Dictionary<String, Double>
+func getMoonIllumination(date: Date) -> Dictionary<String, Double>
 ```
 Returns a dictionary with the following keys:
 * `fraction`: illuminated fraction of the moon; varies from `0.0` (new moon) to `1.0` (full moon)

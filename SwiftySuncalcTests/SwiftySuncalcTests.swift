@@ -109,38 +109,12 @@ class SwiftySuncalcTests: XCTestCase
         super.tearDown()
     }
     
-    func testExample()
+    /**
+     Testing the times functionality
+     */
+    func testTimes()
     {
-        var moonIllumination = suncalcTest.getMoonIllumination(date: customDate),
-            moonPos = suncalcTest.getMoonPosition(date: customDate, lat: testLat, lng: testLng),
-            moonTimes = suncalcTest.getMoonTimes(date: customDate, lat: testLat, lng: testLng),
-            sunPos = suncalcTest.getPosition(date: customDate, lat: testLat, lng: testLng),
-            times = suncalcTest.getTimes(date: customDate, lat: testLat, lng: testLng)
-
-        // Testing for moon illumination values
-        os_log("TESTING FOR MOON ILLUMINATION FUNCTIONALITY", log: OSLog.default, type: .debug)
-        XCTAssertEqual(moonIllumination["fraction"], 0.4848068202456373, "Moon illumination fraction values are not equal!")
-        XCTAssertEqual(moonIllumination["phase"], 0.7548368838538762, "Moon illumination phase values are not equal!")
-        XCTAssertEqual(moonIllumination["angle"], 1.6732942678578346, "Moon illumination angle values are not equal!")
-
-        // Testing for moon positioning
-        os_log("TESTING FOR MOON POSITIONING FUNCTIONALITY", log: OSLog.default, type: .debug)
-        XCTAssertEqual(moonPos["azimuth"], -0.9783999522438226, "Moon azimuth position values not equal!")
-        XCTAssertEqual(moonPos["altitude"], 0.014551482243892251, "Moon altitude position values not equal!")
-        XCTAssertEqual(moonPos["distance"], 364121.37256256194, "Moon distance position values not equal!")
-
-        // Testing for moon times
-        os_log("TESTING FOR MOON TIMES FUNCTIONALITY", log: OSLog.default, type: .debug)
-        XCTAssertEqual(moonTimes["rise"], moonRise, "Moon rise times are not equal!")
-        XCTAssertEqual(moonTimes["set"], moonSet, "Moon set times are not equal!")
-
-        // Testing sun positioning
-        os_log("TESTING FOR SUN POSITION FUNCTIONALITY", log: OSLog.default, type: .debug)
-        XCTAssertEqual(sunPos["azimuth"], -2.5003175907168385, "Azimuth values are not equal for sun position!")
-        XCTAssertEqual(sunPos["altitude"], -0.7000406838781611, "Altitude values are not equal for sun position!")
-
-        // Testing the times functionality
-        os_log("TESTING FOR TIMES FUNCTIONALITY", log: OSLog.default, type: .debug)
+        var times = suncalcTest.getTimes(date: customDate, lat: testLat, lng: testLng)
         XCTAssertEqual(times["solarNoon"], solarNoon, "Solar noon times are not equal!")
         XCTAssertEqual(times["nadir"], nadir, "Nadir times are not equal!")
         XCTAssertEqual(times["sunrise"], sunrise, "Sunrise times are not equal!")
@@ -155,6 +129,49 @@ class SwiftySuncalcTests: XCTestCase
         XCTAssertEqual(times["night"], night, "Night times are not equal!")
         XCTAssertEqual(times["goldenHourEnd"], goldenHourEnd, "Golden hour end times are not equal!")
         XCTAssertEqual(times["goldenHour"], goldenHour, "Golden hour times are not equal!")
+    }
+    
+    /**
+     Testing for moon positioning
+     */
+    func testMoonPosition()
+    {
+        var moonPos = suncalcTest.getMoonPosition(date: customDate, lat: testLat, lng: testLng)
+        XCTAssertEqual(moonPos["azimuth"], -0.9783999522438226, "Moon azimuth position values not equal!")
+        XCTAssertEqual(moonPos["altitude"], 0.014551482243892251, "Moon altitude position values not equal!")
+        XCTAssertEqual(moonPos["distance"], 364121.37256256194, "Moon distance position values not equal!")
+    }
+    
+    /**
+     Testing sun positioning
+     */
+    func testSunPosition()
+    {
+        var sunPos = suncalcTest.getPosition(date: customDate, lat: testLat, lng: testLng)
+        XCTAssertEqual(sunPos["azimuth"], -2.5003175907168385, "Azimuth values are not equal for sun position!")
+        XCTAssertEqual(sunPos["altitude"], -0.7000406838781611, "Altitude values are not equal for sun position!")
+    }
+    
+    /**
+     Testing for moon times
+     */
+    func testMoonTimes()
+    {
+        var moonTimes = suncalcTest.getMoonTimes(date: customDate, lat: testLat, lng: testLng)
+        XCTAssertEqual(moonTimes["rise"], moonRise, "Moon rise times are not equal!")
+        XCTAssertEqual(moonTimes["set"], moonSet, "Moon set times are not equal!")
+    }
+    
+    /**
+     Testing for moon illumination values
+     */
+    func testMoonIllumination()
+    {
+        var moonIllumination = suncalcTest.getMoonIllumination(date: customDate)
+        XCTAssertEqual(moonIllumination["fraction"], 0.4848068202456373, "Moon illumination fraction values are not equal!")
+        XCTAssertEqual(moonIllumination["phase"], 0.7548368838538762, "Moon illumination phase values are not equal!")
+        XCTAssertEqual(moonIllumination["angle"], 1.6732942678578346, "Moon illumination angle values are not equal!")
+
     }
     
     /**

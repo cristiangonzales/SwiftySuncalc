@@ -127,7 +127,7 @@ public class SwiftySuncalc
      */
     private func rightAscension(l: Double, b: Double) -> Double
     {
-        return atan((sin(l) * cos(e) - tan(b) * sin(e)) / cos(l))
+        return atan2(sin(l) * cos(e) - tan(b) * sin(e), cos(l))
     }
     
     /**
@@ -168,7 +168,7 @@ public class SwiftySuncalc
      */
     private func azimuth(H: Double, phi: Double, dec: Double) -> Double
     {
-        return atan(sin(H) / (cos(H) * sin(phi) - tan(dec) * cos(phi)))
+        return atan2(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi))
     }
     
     /**
@@ -565,7 +565,7 @@ public class SwiftySuncalc
         alt: Double = altitude(H: H, phi: phi, dec: c["dec"]!),
         // Formula 14.1 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell,
         // Richmond) 1998.
-        pa: Double = atan(sin(H) / (tan(phi) * cos(c["dec"]!) - sin(c["dec"]!) * cos(H))),
+        pa: Double = atan2(sin(H), tan(phi) * cos(c["dec"]!) - sin(c["dec"]!) * cos(H)),
         // Altitude correction for refraction
         h: Double = alt + astroRefraction(h: alt)
         
@@ -607,9 +607,9 @@ public class SwiftySuncalc
         
         phi: Double = acos(sin(s["dec"]!) * sin(m["dec"]!) + cos(s["dec"]!)
             * cos(m["dec"]!) * cos(s["ra"]! - m["ra"]!)),
-        inc: Double = atan((sdist * sin(phi)) / (m["dist"]! - sdist * cos(phi))),
-        angle: Double = atan((cos(s["dec"]!) * sin(s["ra"]! - m["ra"]!)) / (sin(s["dec"]!) * cos(m["dec"]!) -
-            cos(s["dec"]!) * sin(m["dec"]!) * cos(s["ra"]! - m["ra"]!)))
+        inc: Double = atan2(sdist * sin(phi), m["dist"]! - sdist * cos(phi)),
+        angle: Double = atan2(cos(s["dec"]!) * sin(s["ra"]! - m["ra"]!),  sin(s["dec"]!) * cos(m["dec"]!) -
+            cos(s["dec"]!) * sin(m["dec"]!) * cos(s["ra"]! - m["ra"]!))
         
         return [
             "fraction": (1.0 + cos(inc)) / 2.0,
@@ -733,7 +733,7 @@ public class SwiftySuncalc
 /**
  Custom excpetion for the Suncalc library
  */
-fileprivate enum SuncalcExceeption: Error
+fileprivate enum SuncalcException: Error
 {
     case message(msg: String)
 }
