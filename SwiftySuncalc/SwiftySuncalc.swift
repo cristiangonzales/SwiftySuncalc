@@ -676,11 +676,11 @@ public class SwiftySuncalc
                 dx = Double(sqrt(d)) / Double(abs(a) * 2.0)
                 x1 = xe - dx
                 x2 = xe + dx
-                if abs(x1!) <= 1
+                if abs(x1!) <= 1.0
                 {
                     roots = roots + 1
                 }
-                if abs(x2!) <= 1
+                if abs(x2!) <= 1.0
                 {
                     roots = roots + 1
                 }
@@ -731,7 +731,7 @@ public class SwiftySuncalc
 }
 
 /**
- Custom excpetion for the Suncalc library
+ Custom exception for the Suncalc library
  */
 fileprivate enum SuncalcException: Error
 {
