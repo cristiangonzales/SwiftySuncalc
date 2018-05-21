@@ -20,6 +20,20 @@
                ReferencedContainer = "container:SwiftySuncalc.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B847E265209DBC93008E2B3D"
+               BuildableName = "SwiftySuncalcTests.xctest"
+               BlueprintName = "SwiftySuncalcTests"
+               ReferencedContainer = "container:SwiftySuncalc.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
