@@ -4,6 +4,7 @@
 [![](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)]()
 [![](https://img.shields.io/badge/Swift-4.0--4.1.x-blue.svg)]()
 [![](https://img.shields.io/badge/License-MIT-red.svg)]()
+[![](https://img.shields.io/cocoapods/v/SwiftySuncalc.svg)]()
 
 <p align="center">
     <img src="https://vignette.wikia.nocookie.net/lakewood-plaza-turbo/images/b/b2/Cool_sun.png/revision/latest?cb=20180305223605" width="33%">
@@ -36,9 +37,18 @@ var times = suncalc.getTimes(date: Date(), lat: 51.5, lng: -0.5);
 var nadir: Double = times["nadir"]
 ```
 
-Distribution
+Installation
 ---
-TBA
+Currently, SwiftySuncalc is only available through [CocoaPods](https://cocoapods.org/) for Swift 4.x. Add the following to your `Podfile`:
+```Ruby
+target 'YourTargetApp' do
+  pod 'SwiftySuncalc', '~> 1.0'
+end
+```
+Then run a `pod install` inside your terminal, or from CocoaPods.app. Alternatively to give it a test run, run the command:
+```Ruby
+pod try SwiftySuncalc
+```
 
 Reference
 ---
