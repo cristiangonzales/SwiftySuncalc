@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SwiftySuncalc"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A Swift micro-library for finding sun and moon positions/phases."
   s.homepage     = "https://github.com/cristiangonzales/SwiftySuncalc"
   s.license      = { :type => "MIT", :file => "LICENSE" }

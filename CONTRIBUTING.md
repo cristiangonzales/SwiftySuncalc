@@ -10,6 +10,8 @@ All contributions are welcome, simply make a pull request [here](https://github.
 
 Changelog
 ---
+#### 1.0.1 &mdash; May 25, 2018
+- Minor bug fix involving the scope of SwiftySuncalc constructor.
 #### 1.0.0 &mdash; May 21, 2018
 - Working version of SwiftySuncalc.
 

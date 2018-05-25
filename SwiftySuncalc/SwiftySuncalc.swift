@@ -448,7 +448,7 @@ public class SwiftySuncalc
     /**
      Suncalc constructor
      */
-    init()
+    public init()
     {
         
     }
